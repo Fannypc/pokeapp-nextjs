@@ -1,0 +1,9 @@
+# FLOW NEXT AUTH
+
+user clicks sign in 
+
+user is redirected to github
+
+user authenticates with github
+
+user is redirectecd to /api/auth/callback
