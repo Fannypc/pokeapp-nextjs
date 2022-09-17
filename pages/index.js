@@ -1,13 +1,10 @@
 import styles from "../styles/Home.module.css";
 import { signIn, signOut, useSession } from "next-auth/react";
-// import Image from "next/image";
+import Image from "next/image";
 
 export default function Home() {
   const { data: session, status } = useSession();
   //the user is stored in session
-  console.log("mjeioefhowhf");
-  console.log(status);
-  console.log(session);
   const user = session?.user;
 
   return (
@@ -15,8 +12,9 @@ export default function Home() {
       This is home
       {user && (
         <>
-          <img src={user.image} layout="fill" alt="user" />
+          <Image src={user.image} alt="user-img" width={100} height={100} />
           <h2>{user.name}</h2>
+          <p>{user.email}</p>
           <button onClick={() => signOut()}>Sign out</button>
         </>
       )}

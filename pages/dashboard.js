@@ -1,4 +1,5 @@
 import { getSession } from "next-auth/react";
+import { requireAuthentication } from "../utils/requireAuthentication";
 
 export default function Dashboard({ session }) {
   // const user = session?.user;
@@ -7,13 +8,9 @@ export default function Dashboard({ session }) {
 }
 
 export async function getServerSideProps(context) {
-  const session = await getSession(context);
-
-  if (!session) return { redirect: { destination: "/", permanent: false } };
-
-  return {
-    props: {
-      session,
-    },
-  };
+  return requireAuthentication(context, (session) => {
+    return {
+      props: { session },
+    };
+  });
 }
