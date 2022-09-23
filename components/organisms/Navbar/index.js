@@ -1,3 +1,6 @@
+import MobileLink from "../../atoms/MobileLink";
+import NavLink from "../../atoms/NavLink";
+
 export default function Navbar() {
   const toggleMenu = () => {
     const menu = document.querySelector(".mobile-menu");
@@ -31,25 +34,13 @@ export default function Navbar() {
             </div>
             {/* primary nav */}
             <div className="hidden md:flex flex items-center space-x-1">
-              <a
-                href=""
-                className="py-5 px-3 text-gray-700 hover:text-gray-900"
-              >
-                Features
-              </a>
-              <a
-                href=""
-                className="py-5 px-3 text-gray-700 hover:text-gray-900"
-              >
-                Pricing
-              </a>
+              <NavLink name={"Features"} />
+              <NavLink name={"Pricing"} />
             </div>
           </div>
           {/* secondary nav */}
           <div className="hidden md:flex flex items-center space-x-1">
-            <a href="" className="py-5 px-3 text-gray-700">
-              Login
-            </a>
+            <NavLink name={"Login"} />
             <a
               href=""
               className="py-2 px-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300"
@@ -80,12 +71,8 @@ export default function Navbar() {
       </div>
       {/* mobile menu */}
       <div className="mobile-menu hidden md:hidden">
-        <a href="#" className="block py-2 px-4 text-sm hover:bg-gray-200">
-          Features
-        </a>
-        <a href="#" className="block py-2 px-4 text-sm hover:bg-gray-200">
-          Pricing
-        </a>
+        <MobileLink name={"Features"} />
+        <MobileLink name={"Pricing"} />
       </div>
     </nav>
   );
